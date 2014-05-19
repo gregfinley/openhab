@@ -9,6 +9,9 @@
 package org.openhab.binding.envisalink3.internal;
 
 import java.util.Dictionary;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.EventObject;
 
 import org.openhab.binding.envisalink3.Envisalink3BindingProvider;
 
@@ -34,6 +37,17 @@ public class Envisalink3Binding extends AbstractActiveBinding<Envisalink3Binding
 	private static final Logger logger = 
 		LoggerFactory.getLogger(Envisalink3Binding.class);
 
+	// The IP Address of the envisalink3
+	private String ipAddress;
+	
+	// The Port of the envisalink3
+	private int ipPort;
+
+	// The default port to use if none if configured 
+	private final int defaultIpPort = 4025;
+
+	private MessageListener eventListener = new MessageListener();
+	// private Envisalink3Connector connector = null;
 	
 	/** 
 	 * the refresh interval which is used to poll values from the Envisalink3
@@ -47,13 +61,44 @@ public class Envisalink3Binding extends AbstractActiveBinding<Envisalink3Binding
 		
 	
 	public void activate() {
+		logger.debug("Envisalink3 binding activated");
+		super.activate();
 	}
 	
 	public void deactivate() {
-		// deallocate resources here that are no longer needed and 
-		// should be reset when activating this binding again
+		logger.debug("Envisalink3 binding deactivated");
+		stopListening();	
 	}
 
+	private void listen() {
+		stopListening();
+
+		/**
+		connector = new Envisalink3Connector();
+		if (connector != null) {
+			// Initialize the IP connection
+			connector.addEventListener(eventListener);
+			try {
+				connector.connect(ipAddress, ipPort);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		**/
+	}
+
+
+	private void stopListening() {
+		/**
+		if (connector != null)
+		{
+			connector.disconnect();
+			connector.removeEventListener(eventListener);
+			connector = null;
+		}
+		**/
+	}
+		
 	
 	/**
 	 * @{inheritDoc}
@@ -76,8 +121,8 @@ public class Envisalink3Binding extends AbstractActiveBinding<Envisalink3Binding
 	 */
 	@Override
 	protected void execute() {
-		// the frequently executed code (polling) goes here ...
-		logger.debug("execute() method is called!");
+		//logger.debug("execute() method is called!");
+		logger.debug("Envisalink3 execute() method is called");
 	}
 
 	/**
@@ -107,6 +152,8 @@ public class Envisalink3Binding extends AbstractActiveBinding<Envisalink3Binding
 	 */
 	@Override
 	public void updated(Dictionary<String, ?> config) throws ConfigurationException {
+		logger.debug("Envisalink3 updated() method is called!");
+
 		if (config != null) {
 			
 			// to override the default refresh interval one has to add a 
@@ -115,12 +162,35 @@ public class Envisalink3Binding extends AbstractActiveBinding<Envisalink3Binding
 			if (StringUtils.isNotBlank(refreshIntervalString)) {
 				refreshInterval = Long.parseLong(refreshIntervalString);
 			}
-			
-			// read further config parameters here ...
+		
+			String hostConfig = (String) config.get("host");
+			if (StringUtils.isNotBlank(hostConfig)) {
+				logger.debug("Setting Envisalink3 host=" + (String)hostConfig);
+				ipAddress = hostConfig;
+			}
+
+			String hostPort = (String) config.get("port");
+			if (StringUtils.isNotBlank(hostPort)) {
+				logger.debug("Setting Envisalink3 port=" + (String)hostPort);
+				ipPort = Integer.parseInt(hostPort);
+			}
+
+			// Start the listener
+			listen(); 
 
 			setProperlyConfigured(true);
 		}
 	}
 	
+	/**
+  	 * Received incoming packets 
+	 */
+	private class MessageListener implements Envisalink3EventListener {
+	
+		public void packetReceived(EventObject event, byte[] packet) {
 
+		}
+
+			
+	}
 }
