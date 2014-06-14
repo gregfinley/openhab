@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.EventObject;
 
 import org.openhab.binding.envisalink3.Envisalink3BindingProvider;
+import org.openhab.binding.envisalink3.internal.board.Envisalink3Message;
 
 import org.apache.commons.lang.StringUtils;
 import org.openhab.core.binding.AbstractActiveBinding;
@@ -23,6 +24,7 @@ import org.osgi.service.cm.ConfigurationException;
 import org.osgi.service.cm.ManagedService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.io.IOException;
 	
 
 /**
@@ -47,7 +49,7 @@ public class Envisalink3Binding extends AbstractActiveBinding<Envisalink3Binding
 	private final int defaultIpPort = 4025;
 
 	private MessageListener eventListener = new MessageListener();
-	// private Envisalink3Connector connector = null;
+	private Envisalink3Connector connector = null;
 	
 	/** 
 	 * the refresh interval which is used to poll values from the Envisalink3
@@ -73,18 +75,23 @@ public class Envisalink3Binding extends AbstractActiveBinding<Envisalink3Binding
 	private void listen() {
 		stopListening();
 
-		/**
+		/* Debug */
+		logger.debug("About to start listening");
+		
+		logger.debug("Creating envisalink3Connector object");
 		connector = new Envisalink3Connector();
+		logger.debug("Creating envisalink3Connector object - success");
 		if (connector != null) {
 			// Initialize the IP connection
 			connector.addEventListener(eventListener);
 			try {
+				logger.debug("Tring to connect");
 				connector.connect(ipAddress, ipPort);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		**/
+		
 	}
 
 
@@ -179,7 +186,10 @@ public class Envisalink3Binding extends AbstractActiveBinding<Envisalink3Binding
 			listen(); 
 
 			setProperlyConfigured(true);
+		} else {
+			logger.debug("Envisalink3 config is null");
 		}
+
 	}
 	
 	/**
@@ -187,10 +197,34 @@ public class Envisalink3Binding extends AbstractActiveBinding<Envisalink3Binding
 	 */
 	private class MessageListener implements Envisalink3EventListener {
 	
-		public void packetReceived(EventObject event, byte[] packet) {
+		Envisalink3Message envisalink3Message = null;
 
+		public void packetReceived(EventObject event, String packet) {
+			envisalink3Message = new Envisalink3Message(packet);
+
+			for (Envisalink3BindingProvider provider : providers) {
+				for (int i = 1; i <= 16; i++) {
+					for (String itemName : provider.getBindingItemsAtZone(i)) {
+						State state = null;
+						switch(provider.getFunction(itemName)) {
+							case STATUS:
+								state = envisalink3Message.getZoneState(provider.getItemType(itemName), provider.getZone(itemName));
+								break;
+							case BYPASS:
+								break; 
+							default:
+								break;
+						}
+						if ((state != null) && (envisalink3Message.isZoneChange())) {
+							eventPublisher.postUpdate(itemName, state);
+							logger.debug("Changed state of {} to {}", itemName, state);
+						} else {
+							logger.error("'{}' couldn't be parsed to a state.", itemName);
+						}
+		
+					}
+				}
+			}
 		}
-
-			
 	}
 }
