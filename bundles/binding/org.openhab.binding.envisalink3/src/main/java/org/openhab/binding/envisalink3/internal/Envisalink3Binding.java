@@ -25,6 +25,7 @@ import org.osgi.service.cm.ManagedService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
+import org.openhab.core.library.types.OpenClosedType;
 	
 
 /**
@@ -63,12 +64,12 @@ public class Envisalink3Binding extends AbstractActiveBinding<Envisalink3Binding
 		
 	
 	public void activate() {
-		logger.debug("Envisalink3 binding activated");
+		logger.info("Envisalink3 binding activated");
 		super.activate();
 	}
 	
 	public void deactivate() {
-		logger.debug("Envisalink3 binding deactivated");
+		logger.info("Envisalink3 binding deactivated");
 		stopListening();	
 	}
 
@@ -85,7 +86,7 @@ public class Envisalink3Binding extends AbstractActiveBinding<Envisalink3Binding
 			// Initialize the IP connection
 			connector.addEventListener(eventListener);
 			try {
-				logger.debug("Tring to connect");
+				logger.debug("Trying to connect");
 				connector.connect(ipAddress, ipPort);
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -151,7 +152,7 @@ public class Envisalink3Binding extends AbstractActiveBinding<Envisalink3Binding
 		// the code being executed when a state was sent on the openHAB
 		// event bus goes here. This method is only called if one of the 
 		// BindingProviders provide a binding for the given 'itemName'.
-		logger.debug("internalReceiveCommand() is called!");
+		logger.debug("internalReceiveUpdate() is called!");
 	}
 		
 	/**
@@ -172,19 +173,39 @@ public class Envisalink3Binding extends AbstractActiveBinding<Envisalink3Binding
 		
 			String hostConfig = (String) config.get("host");
 			if (StringUtils.isNotBlank(hostConfig)) {
-				logger.debug("Setting Envisalink3 host=" + (String)hostConfig);
+				logger.info("Setting Envisalink3 host=" + (String)hostConfig);
 				ipAddress = hostConfig;
 			}
 
 			String hostPort = (String) config.get("port");
 			if (StringUtils.isNotBlank(hostPort)) {
-				logger.debug("Setting Envisalink3 port=" + (String)hostPort);
+				logger.info("Setting Envisalink3 port=" + (String)hostPort);
 				ipPort = Integer.parseInt(hostPort);
 			}
 
 			// Start the listener
 			listen(); 
 
+			logger.info("Attempting to set all zones to closed state initially");
+			for (Envisalink3BindingProvider provider : providers)
+			{
+				for (int i = 1; i <= 16; i++) {
+					for (String itemName : provider.getBindingItemsAtZone(i)) {
+						switch(provider.getFunction(itemName)) {
+							case STATUS:
+								logger.info("Setting {} to CLOSED", itemName);
+								eventPublisher.postUpdate(itemName, (State)OpenClosedType.CLOSED);
+								break;
+							case BYPASS:
+								break;
+							default:
+								break;
+						}
+					}
+				}
+			}
+				
+			
 			setProperlyConfigured(true);
 		} else {
 			logger.debug("Envisalink3 config is null");
@@ -217,14 +238,15 @@ public class Envisalink3Binding extends AbstractActiveBinding<Envisalink3Binding
 						}
 						if ((state != null) && (envisalink3Message.isZoneChange())) {
 							eventPublisher.postUpdate(itemName, state);
-							logger.debug("Changed state of {} to {}", itemName, state);
+							logger.info("Changed state of {} to {}", itemName, state);
 						} else {
-							logger.error("'{}' couldn't be parsed to a state.", itemName);
+							logger.debug("'{}' couldn't be parsed to a state.", itemName);
 						}
 		
 					}
 				}
 			}
+			envisalink3Message = null;
 		}
 	}
 }
