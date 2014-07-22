@@ -99,6 +99,24 @@ Example:
     	<feature name="lastheardfrom">2486DWH8lasttime</feature>
     </productKey>
   </subcategory>
+  <subcategory>
+    <name>KeypadLinc Dimmer</name>
+    <description>2486DWH6</description>
+    <subCat>0x1B</subCat>
+    <productKey name="0x000050">
+      <feature name="dimmer">GenericDimmer</feature>
+      <feature name="lastheardfrom">GenericLastTime</feature>
+    </productKey>
+  </subcategory>
+  <subcategory>
+    <name>Insteon LED Bulb</name>
+    <description>2672-222</description>
+    <subCat>0x3A</subCat>
+    <productKey name="F00.00.10">
+       <feature name="dimmer">GenericDimmer</feature>
+       <feature name="lastheardfrom">GenericLastTime</feature>
+    </productKey>
+  </subcategory>
 </category>
 <category>
   <name>Switch</name>
