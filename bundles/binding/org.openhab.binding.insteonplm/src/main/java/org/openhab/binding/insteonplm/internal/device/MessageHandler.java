@@ -396,9 +396,8 @@ public abstract class MessageHandler {
 				} else {
 					logger.info("{}: set device {} to level {}", nm(),
 							dev.getAddress(), level);
-					m_feature.publishAll(new PercentType(level));
+					m_feature.publish(new PercentType(level), StateChangeType.CHANGED);
 				}
-				m_feature.publish(new PercentType(level), StateChangeType.CHANGED);
 			} catch (FieldException e) {
 				logger.error("{}: error parsing {}: ", nm(), msg, e);
 			}
