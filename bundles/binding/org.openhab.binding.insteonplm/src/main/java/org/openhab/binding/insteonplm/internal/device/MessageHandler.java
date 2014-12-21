@@ -378,6 +378,10 @@ public abstract class MessageHandler {
 			InsteonDevice dev = f.getDevice();
 			try {
 				int cmd2 = (int) (msg.getByte("command2") & 0xff);
+				if (cmd2 == 0xfe) {
+					// sometimes dimmer devices are returning 0xfe when on instead of 0xff
+					cmd2 = 0xff;
+				}
 
 				int level = cmd2*100/255;
 				if (level == 0 && cmd2 > 0) level = 1;
@@ -392,6 +396,7 @@ public abstract class MessageHandler {
 				} else {
 					logger.info("{}: set device {} to level {}", nm(),
 							dev.getAddress(), level);
+					m_feature.publishAll(new PercentType(level));
 				}
 				m_feature.publish(new PercentType(level), StateChangeType.CHANGED);
 			} catch (FieldException e) {
