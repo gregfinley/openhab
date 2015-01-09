@@ -1151,6 +1151,15 @@
 		<Product>
 			<Reference>
 				<Type>0100</Type>
+				<Id>0101</Id>
+			</Reference>
+			<Model>WALLC-S</Model>
+			<Label lang="en">Wall Controller</Label>
+			<ConfigFile>zwaveme/zme_wallcs.xml</ConfigFile>
+		</Product>
+		<Product>
+			<Reference>
+				<Type>0100</Type>
 				<Id>0001</Id>
 			</Reference>
 			<Reference>
@@ -1182,6 +1191,15 @@
 			<Model>ZME_064435</Model>
 			<Label lang="en">Single Paddle Wall Controller</Label>
 			<ConfigFile>zwaveme/zme_064435.xml</ConfigFile>
+		</Product>
+		<Product>
+			<Reference>
+				<Type>1000</Type>
+				<Id>300</Id>
+			</Reference>
+			<Model>ZME_RC2</Model>
+			<Label lang="en">Z-Wave Remote Control+</Label>
+			<ConfigFile>zwaveme/zme_rc2.xml</ConfigFile>
 		</Product>
 		<Product>
 			<Reference>
