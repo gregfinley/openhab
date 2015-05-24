@@ -875,6 +875,12 @@
 		</dependency>
 		<dependency>
 			<groupId>org.openhab.binding</groupId>
+			<artifactId>org.openhab.binding.hms</artifactId>
+			<version>${project.version}</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.openhab.binding</groupId>
 			<artifactId>org.openhab.binding.fht</artifactId>
 			<version>${project.version}</version>
 			<type>jar</type>
@@ -1233,21 +1239,27 @@
 			<version>${project.version}</version>
 			<type>jar</type>
 		</dependency>
-        <dependency>
-            <groupId>org.openhab.binding</groupId>
-            <artifactId>org.openhab.binding.frontiersiliconradio</artifactId>
-            <version>${project.version}</version>
-            <type>jar</type>
-        </dependency>
+		<dependency> 
+			<groupId>org.openhab.binding</groupId>
+			<artifactId>org.openhab.binding.frontiersiliconradio</artifactId>
+			<version>${project.version}</version>
+			<type>jar</type>
+		</dependency>
         <dependency>
 			<groupId>org.openhab.core</groupId>
 			<artifactId>org.openhab.core.jsr223</artifactId>
 			<version>${project.version}</version>
 			<type>jar</type>
 		</dependency>
-        <dependency>
-            <groupId>org.openhab.core</groupId>
+		<dependency> 
+			<groupId>org.openhab.binding</groupId>
 			<artifactId>org.openhab.binding.primare</artifactId>
+			<version>${project.version}</version>
+			<type>jar</type>
+		</dependency>
+		<dependency> 
+			<groupId>org.openhab.binding</groupId>
+			<artifactId>org.openhab.binding.panasonictv</artifactId>
 			<version>${project.version}</version>
 			<type>jar</type>
 		</dependency>
@@ -1319,7 +1331,12 @@
 			<version>${project.version}</version>
 			<type>jar</type>
 		</dependency>
-
+		<dependency>
+			<groupId>org.openhab.io</groupId>
+			<artifactId>org.openhab.io.myopenhab</artifactId>
+			<version>${project.version}</version>
+			<type>jar</type>
+		</dependency>
 		<dependency>
 			<groupId>org.openhab.io</groupId>
 			<artifactId>org.openhab.io.transport.cul</artifactId>
