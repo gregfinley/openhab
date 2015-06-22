@@ -1120,6 +1120,15 @@
 		</Product>
 		<Product>
 			<Reference>
+				<Type>200f</Type>
+				<Id>0f03</Id>
+			</Reference>
+			<Model>ZS6301</Model>
+			<Label lang="en">CO Detector</Label>
+			<ConfigFile>vision/zs6301.xml</ConfigFile>
+		</Product>
+		<Product>
+			<Reference>
 				<Type>2005</Type>
 				<Id>0503</Id>
 			</Reference>
@@ -1984,6 +1993,15 @@
 			<Model>VRCZ4-MRZ</Model>
 			<Label lang="en">4-Zone Controller</Label>
 			<ConfigFile>leviton/vrcz4-mrz.xml</ConfigFile>
+		</Product>
+		<Product>
+			<Reference>
+				<Type>1706</Type>
+				<Id>334</Id>
+			</Reference>
+			<Model>VRPD3-1LW</Model>
+			<Label lang="en">Scene Capable Plug-in Dimmer</Label>
+			<ConfigFile>leviton/vrpd3-1lw.xml</ConfigFile>
 		</Product>
 	</Manufacturer>
 	<Manufacturer>
