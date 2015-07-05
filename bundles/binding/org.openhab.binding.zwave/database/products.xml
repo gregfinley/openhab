@@ -35,7 +35,7 @@
 			</Reference>
 			<Model>WS15Z-1</Model>
 			<Label lang="en">Wall Mounted Switch</Label>
-			<ConfigFile>linear/wsz15-1.xml</ConfigFile>
+			<ConfigFile>linear/ws15z-1.xml</ConfigFile>
 		</Product>
 		<Product>
 			<Reference>
@@ -1190,6 +1190,15 @@
 		<Name>Fibaro System</Name>
 		<Product>
 			<Reference>
+				<Type>0402</Type>
+				<Id>1002</Id>
+			</Reference>
+			<Model>FGS212</Model>
+			<Label lang="en">Relay Switch 1x2.5kW</Label>
+			<ConfigFile>fibaro/fgs212.xml</ConfigFile>
+		</Product>
+		<Product>
+			<Reference>
 				<Type>0800</Type>
 				<Id>1001</Id>
 			</Reference>
@@ -2064,6 +2073,15 @@
 			<Model>ZXT-120</Model>
 			<Label lang="en">Remotec ZXT-120 AC IR Remote</Label>
 			<ConfigFile>remotec/zxt120.xml</ConfigFile>
+		</Product>
+		<Product>
+			<Reference>
+				<Type>200</Type>
+				<Id>8031</Id>
+			</Reference>
+			<Model>ZTS-110</Model>
+			<Label lang="en">Remotec ZTS-110 Z Wave Thermostat</Label>
+			<ConfigFile>remotec/zts110.xml</ConfigFile>
 		</Product>
 	</Manufacturer>
 	<Manufacturer>
