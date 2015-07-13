@@ -670,6 +670,27 @@
 		<Name>Aeon Labs</Name>
 		<Product>
 			<Reference>
+				<Type>0003</Type>
+				<Id>0060</Id>
+			</Reference>
+			<Reference>
+                <Type>0103</Type>
+                <Id>0060</Id>
+            </Reference>
+            <Reference>
+                <Type>0203</Type>
+                <Id>0060</Id>
+            </Reference>
+            <Reference>
+                <Type>1D03</Type>
+                <Id>0060</Id>
+            </Reference>
+			<Model>ZW096</Model>
+			<Label lang="en">Smart Switch 6</Label>
+			<ConfigFile>aeon/zw096.xml</ConfigFile>
+		</Product>	
+		<Product>
+			<Reference>
 				<Type>0002</Type>
 				<Id>0059</Id>
 			</Reference>
@@ -713,6 +734,10 @@
 			<ConfigFile>aeon/zss2.xml</ConfigFile>
 		</Product>
 		<Product>
+			<Reference>
+				<Type>0001</Type>
+				<Id>005a</Id>
+			</Reference>
 			<Reference>
 				<Type>0101</Type>
 				<Id>005a</Id>
@@ -1192,6 +1217,15 @@
 			<Model>ZL7431</Model>
 			<Label lang="en">In Wall Relay Switch</Label>
 			<ConfigFile>vision/zl7431.xml</ConfigFile>
+		</Product>
+		<Product>
+			<Reference>
+				<Type>2005</Type>
+				<Id>0508</Id>
+			</Reference>
+			<Model>ZM1601v5</Model>
+			<Label lang="en">Battery Operated Siren</Label>
+			<ConfigFile>vision/zm1601v5.xml</ConfigFile>
 		</Product>
 	</Manufacturer>
 	<Manufacturer>
@@ -2141,6 +2175,15 @@
 			<Label lang="en">Flush PWM thermostat</Label>
 			<ConfigFile>qubino/zmnhla.xml</ConfigFile>
 		</Product>
+	<Product>
+			<Reference>
+				<Type>3</Type>
+				<Id>2</Id>
+			</Reference>
+			<Model>ZMNHCD</Model>
+			<Label lang="en">Flush Shutter</Label>
+			<ConfigFile>qubino/zmnhcd.xml</ConfigFile>
+		</Product>
 	</Manufacturer>
 	<Manufacturer>
 		<Id>97</Id>
@@ -2439,6 +2482,19 @@
 			<Model>TZEMT400BB32MAA</Model>
 			<Label lang="en">Trane Z-Wave Programmable Thermostat</Label>
 			<ConfigFile>trane/tzemt400bb32maa.xml</ConfigFile>
+		</Product>
+	</Manufacturer>
+	<Manufacturer>
+		<Id>0149</Id>
+		<Name>WiDOM</Name>
+		<Product>
+			<Reference>
+				<Type>1214</Type>
+				<Id>0304</Id>
+			</Reference>
+			<Model>WPS104</Model>
+			<Label lang="en">Energy Driven Switch</Label>
+			<ConfigFile>widom/wps104.xml</ConfigFile>
 		</Product>
 	</Manufacturer>
 </Manufacturers>
