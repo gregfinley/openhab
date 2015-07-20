@@ -1002,6 +1002,15 @@
 			<Label lang="en">Siren</Label>
 			<ConfigFile>aeon/siren.xml</ConfigFile>
 		</Product>
+		<Product>
+			<Reference>
+				<Type>0003</Type>
+				<Id>0062</Id>
+			</Reference>
+			<Model>ZW098-C55</Model>
+			<Label lang="en">LED Bulb</Label>
+			<ConfigFile>aeon/zw098.xml</ConfigFile>
+		</Product>
 	</Manufacturer>
 	<Manufacturer>
 		<Id>0098</Id>
@@ -1686,6 +1695,15 @@
 			<Model>ZME_UZB1</Model>
 			<Label lang="en">Z-Wave Plus USB Controller</Label>
 		</Product>
+		<Product>
+			<Reference>
+				<Type>1000</Type>
+				<Id>0005</Id>
+			</Reference>
+			<Model>ZME_05457</Model>
+			<Label lang="en">Wall Switch Set for Busch Jaeger</Label>
+			<ConfigFile>zwaveme/zme_05457.xml</ConfigFile>
+		</Product>
 	</Manufacturer>
 	<Manufacturer>
 		<Id>0118</Id>
@@ -2340,6 +2358,10 @@
 			<Label lang="en">Wall Plug Dimmer</Label>
 			<ConfigFile>popp/123580.xml</ConfigFile>
 		</Product>
+	</Manufacturer>
+	<Manufacturer>
+		<Id>0169</Id>
+		<Name>POPP_NEW</Name>
 		<Product>
 			<Reference>
 				<Type>0001</Type>
@@ -2349,7 +2371,7 @@
 			<Label lang="en">Z Weather</Label>
 			<ConfigFile>popp/zweather.xml</ConfigFile>
 		</Product>
-	</Manufacturer>
+	</Manufacturer>	
 	<Manufacturer>
 		<Id>0129</Id>
 		<Name>Yale Locks</Name>
