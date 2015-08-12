@@ -995,15 +995,6 @@
 		<Product>
 			<Reference>
 				<Type>0001</Type>
-				<Id>0058</Id>
-			</Reference>
-			<Model>KeyFobG5</Model>
-			<Label lang="en">4 button keyfob</Label>
-			<ConfigFile>aeon/keyfobg1.xml</ConfigFile>
-		</Product>
-		<Product>
-			<Reference>
-				<Type>0001</Type>
 				<Id>0026</Id>
 			</Reference>
 			<Model>DSA38</Model>
@@ -1550,6 +1541,15 @@
 			<Label lang="en">Fibaro FGR221 Roller Shutter Controller</Label>
 			<ConfigFile>fibaro/fgr221.xml</ConfigFile>
 		</Product>
+		<Product>
+			<Reference>
+				<Type>0102</Type>
+				<Id>1000</Id>
+			</Reference>
+			<Model>FGD212</Model>
+			<Label lang="en">Fibaro Dimmer 2</Label>
+			<ConfigFile>fibaro/fgd212.xml</ConfigFile>
+		</Product>
 	</Manufacturer>
 	<Manufacturer>
 		<Id>011F</Id>
@@ -1682,6 +1682,10 @@
 			<Reference>
 				<Type>0100</Type>
 				<Id>0102</Id>
+			</Reference>
+			<Reference>
+				<Type>0100</Type>
+				<Id>0101</Id>
 			</Reference>
 			<Model>KFOB</Model>
 			<Label lang="en">4 button keyfob</Label>
@@ -2258,7 +2262,7 @@
 			<Label lang="en">Flush PWM thermostat</Label>
 			<ConfigFile>qubino/zmnhla.xml</ConfigFile>
 		</Product>
-	<Product>
+		<Product>
 			<Reference>
 				<Type>3</Type>
 				<Id>2</Id>
@@ -2266,6 +2270,15 @@
 			<Model>ZMNHCD</Model>
 			<Label lang="en">Flush Shutter</Label>
 			<ConfigFile>qubino/zmnhcd.xml</ConfigFile>
+		</Product>
+		<Product>
+			<Reference>
+				<Type>3</Type>
+				<Id>53</Id>
+			</Reference>
+			<Model>ZMNHOD</Model>
+			<Label lang="en">Flush Shutter</Label>
+			<ConfigFile>qubino/zmnhod.xml</ConfigFile>
 		</Product>
 	</Manufacturer>
 	<Manufacturer>
