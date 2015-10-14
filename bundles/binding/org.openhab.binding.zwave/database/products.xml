@@ -1519,6 +1519,10 @@
 			</Reference>
 			<Reference>
 				<Type>0B00</Type>
+				<Id>2001</Id>
+			</Reference>
+			<Reference>
+				<Type>0B00</Type>
 				<Id>3001</Id>
 			</Reference>
 			<Model>FGFS101</Model>
@@ -2787,7 +2791,7 @@
 		</Product>
 	</Manufacturer>
 	<Manufacturer>
-		<Id>00A5</Id>
+		<Id>0165</Id>
 		<Name>Nodon</Name>
 		<Product>
 			<Reference>
@@ -2796,6 +2800,7 @@
 			</Reference>
 			<Model>CRC-3100</Model>
 			<Label lang="en">Remote Control</Label>
+			<ConfigFile>nodon/crc3100.xml</ConfigFile>
 		</Product>
 	</Manufacturer>
 </Manufacturers>
