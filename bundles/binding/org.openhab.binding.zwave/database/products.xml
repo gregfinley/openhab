@@ -483,7 +483,7 @@
 		</Product>
 		<Product>
 			<Reference>
-				<Type>5256</Type>
+				<Type>5246</Type>
 				<Id>3133</Id>
 			</Reference>
 			<Model>LFM-20</Model>
@@ -1323,6 +1323,15 @@
 			<Model>ZL7431</Model>
 			<Label lang="en">In Wall Relay Switch</Label>
 			<ConfigFile>vision/zl7431.xml</ConfigFile>
+		</Product>
+		<Product>
+			<Reference>
+				<Type>2017</Type>
+				<Id>01717</Id>
+			</Reference>
+			<Model>ZL7432</Model>
+			<Label lang="en">In Wall Dual Relay Switch</Label>
+			<ConfigFile>vision/zl7432.xml</ConfigFile>
 		</Product>
 		<Product>
 			<Reference>
@@ -2380,6 +2389,15 @@
 			<Model>ZMNHDA</Model>
 			<Label lang="en">Flush dimmer</Label>
 			<ConfigFile>qubino/zmnhda.xml</ConfigFile>
+		</Product>
+		<Product>
+			<Reference>
+				<Type>1</Type>
+				<Id>51</Id>
+			</Reference>
+			<Model>ZMNHDD</Model>
+			<Label lang="en">Flush Dimmer Plus</Label>
+			<ConfigFile>qubino/zmnhdd.xml</ConfigFile>
 		</Product>
 		<Product>
 			<Reference>
