@@ -263,6 +263,14 @@
 		</Product>
 		<Product>
 			<Reference>
+				<Type>4341</Type>
+				<Id>3750</Id>
+			</Reference>
+			<Model>CA-3750</Model>
+			<Label lang="en">Heavy duty contactor</Label>
+		</Product>
+		<Product>
+			<Reference>
 				<Type>4841</Type>
 				<Id>0020</Id>
 			</Reference>
@@ -2235,6 +2243,15 @@
 			<Model>VRI10-1LZ</Model>
 			<Label lang="en">Scene Capable Push On/Off Dimmer</Label>
 			<ConfigFile>leviton/vri10-1lz.xml</ConfigFile>
+		</Product>
+		<Product>
+			<Reference>
+				<Type>0602</Type>
+				<Id>0334</Id>
+			</Reference>
+			<Model>VRMX1-1LZ</Model>
+			<Label lang="en">Scene Capable Push On/Off Dimmer</Label>
+			<ConfigFile>leviton/vrmx1-1lz.xml</ConfigFile>
 		</Product>
 		<Product>
 			<Reference>
