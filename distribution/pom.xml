@@ -659,12 +659,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.openhab.binding</groupId>
-			<artifactId>org.openhab.binding.octoller</artifactId>
-			<version>${project.version}</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>org.openhab.binding</groupId>
 			<artifactId>org.openhab.binding.snmp</artifactId>
 			<version>${project.version}</version>
 			<type>jar</type>
@@ -1389,6 +1383,24 @@
             <version>${project.version}</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>org.openhab.binding</groupId>
+            <artifactId>org.openhab.binding.octoller</artifactId>
+            <version>${project.version}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.openhab.binding</groupId>
+            <artifactId>org.openhab.binding.akm868</artifactId>
+            <version>${project.version}</version>
+            <type>jar</type>
+        </dependency>
+		<dependency>
+			<groupId>org.openhab.binding</groupId>
+			<artifactId>org.openhab.binding.sonance</artifactId>
+			<version>${project.version}</version>
+			<type>jar</type>
+		</dependency>
 
 		<dependency>
 			<groupId>org.openhab.io</groupId>
@@ -1545,6 +1557,12 @@
 		<dependency>
 			<groupId>org.openhab.persistence</groupId>
 			<artifactId>org.openhab.persistence.mongodb</artifactId>
+			<version>${project.version}</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.openhab.persistence</groupId>
+			<artifactId>org.openhab.persistence.influxdb08</artifactId>
 			<version>${project.version}</version>
 			<type>jar</type>
 		</dependency>

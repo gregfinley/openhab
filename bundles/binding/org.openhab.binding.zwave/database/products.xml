@@ -1438,6 +1438,10 @@
 				<Type>0301</Type>
 				<Id>1001</Id>
 			</Reference>
+			<Reference>
+				<Type>0302</Type>
+				<Id>1000</Id>
+			</Reference>
 			<Model>FGRM222</Model>
 			<Label lang="en">Roller Shutter</Label>
 			<ConfigFile>fibaro/fgrm222.xml</ConfigFile>
@@ -1656,6 +1660,10 @@
 			<Reference>
 				<Type>0900</Type>
 				<Id>4000</Id>
+			</Reference>
+			<Reference>
+				<Type>3000</Type>
+				<Id>900</Id>
 			</Reference>
 			<Model>FGRGBW</Model>
 			<Label lang="en">Fibaro RGBW Controller</Label>
@@ -2452,6 +2460,15 @@
 			<Label lang="en">Remotec ZTS-110 Z Wave Thermostat</Label>
 			<ConfigFile>remotec/zts110.xml</ConfigFile>
 		</Product>
+		<Product>
+			<Reference>
+				<Type>0102</Type>
+				<Id>8377</Id>
+			</Reference>
+			<Model>ZXT-120AU</Model>
+			<Label lang="en">Remotec ZXT-120 AC IR Remote</Label>
+			<ConfigFile>remotec/zxt120.xml</ConfigFile>
+		</Product>
 	</Manufacturer>
 	<Manufacturer>
 		<Id>159</Id>
@@ -2473,6 +2490,15 @@
 			<Model>ZMNHAD</Model>
 			<Label lang="en">Flush 1 relay</Label>
 			<ConfigFile>qubino/zmnhad.xml</ConfigFile>
+		</Product>
+		<Product>
+			<Reference>
+				<Type>2</Type>
+				<Id>53</Id>
+			</Reference>
+			<Model>ZMNHND</Model>
+			<Label lang="en">Flush 1D relay</Label>
+			<ConfigFile>qubino/zmnhnd.xml</ConfigFile>
 		</Product>
 		<Product>
 			<Reference>
@@ -3031,4 +3057,17 @@
 			<ConfigFile>unknown/im-20.xml</ConfigFile>
 		</Product>
 	</Manufacturer>
+	<Manufacturer>
+		<Id>0071</Id>
+		<Name>LS Control</Name>
+		<Product>
+ 			<Reference>
+ 				<Type>0002</Type>
+ 				<Id>035d</Id>
+ 			</Reference>
+ 			<Model>E861C</Model>
+ 			<Label lang="en">Temperature Sensor</Label>
+ 			<ConfigFile>lscontrol/e861c.xml</ConfigFile>
+ 		</Product>
+ 	</Manufacturer>
 </Manufacturers>
