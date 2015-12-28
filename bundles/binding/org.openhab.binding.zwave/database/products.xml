@@ -456,10 +456,6 @@
 			</Reference>
 			<Reference>
 				<Type>0002</Type>
-				<Id>0001</Id>
-			</Reference>
-			<Reference>
-				<Type>0002</Type>
 				<Id>0002</Id>
 			</Reference>
 			<Model>HSM02</Model>
@@ -467,6 +463,16 @@
 			<Label lang="de">Tür/Fenster Kontakt</Label>
 			<ConfigFile>everspring/hsm02.xml</ConfigFile>
 		</Product>
+		<Product>
+			<Reference>
+				<Type>0002</Type>
+				<Id>0001</Id>
+			</Reference>
+			<Model>SM103</Model>
+			<Label lang="en">Door/Window Contact</Label>
+			<Label lang="de">Tür/Fenster Kontakt</Label>
+			<ConfigFile>everspring/sm103.xml</ConfigFile>
+		</Product>		
 		<Product>
 			<Reference>
 				<Type>000C</Type>
@@ -1663,7 +1669,7 @@
 			</Reference>
 			<Reference>
 				<Type>3000</Type>
-				<Id>900</Id>
+				<Id>0900</Id>
 			</Reference>
 			<Model>FGRGBW</Model>
 			<Label lang="en">Fibaro RGBW Controller</Label>
@@ -1694,6 +1700,10 @@
 			<Reference>
 				<Type>0102</Type>
 				<Id>1000</Id>
+			</Reference>
+			<Reference>
+				<Type>0102</Type>
+				<Id>3000</Id>
 			</Reference>
 			<Model>FGD212</Model>
 			<Label lang="en">Fibaro Dimmer 2</Label>
@@ -2737,7 +2747,7 @@
 				<Id>1</Id>
 			</Reference>
 			<Model>05438</Model>
-			<Label lang="en">Outdoor Wall Plug Switch</Label>
+			<Label lang="en">Indoor/Outdoor Wall Plug Switch</Label>
 			<ConfigFile>popp/05438.xml</ConfigFile>
 		</Product>
 		<Product>

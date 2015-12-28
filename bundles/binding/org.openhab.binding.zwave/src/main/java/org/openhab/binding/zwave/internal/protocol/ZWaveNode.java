@@ -78,11 +78,16 @@ public class ZWaveNode {
 	private boolean routing;
 	private String healState;
 	
+    // Keep the NIF - just used for information and debug in the XML
+    @SuppressWarnings("unused")
+    private List<Integer> nodeInformationFrame = null;
+	
 	private Map<CommandClass, ZWaveCommandClass> supportedCommandClasses = new HashMap<CommandClass, ZWaveCommandClass>();
 	private List<Integer> nodeNeighbors = new ArrayList<Integer>();
 	private Date lastSent = null;
 	private Date lastReceived = null;
 
+	@XStreamOmitField
 	private boolean applicationUpdateReceived = false;
 
 	@XStreamOmitField
@@ -821,4 +826,8 @@ public class ZWaveNode {
 	public void setApplicationUpdateReceived(boolean received) {
 		applicationUpdateReceived = received;
 	}
+	
+    public void updateNIF(List<Integer> nif) {
+        nodeInformationFrame = nif;
+    }
 }

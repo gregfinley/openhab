@@ -1395,9 +1395,21 @@
             <version>${project.version}</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>org.openhab.binding</groupId>
+            <artifactId>org.openhab.binding.sonance</artifactId>
+            <version>${project.version}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.openhab.binding</groupId>
+            <artifactId>org.openhab.binding.stiebelheatpump</artifactId>
+            <version>${project.version}</version>
+            <type>jar</type>
+        </dependency>
 		<dependency>
 			<groupId>org.openhab.binding</groupId>
-			<artifactId>org.openhab.binding.sonance</artifactId>
+			<artifactId>org.openhab.binding.sallegra</artifactId>
 			<version>${project.version}</version>
 			<type>jar</type>
 		</dependency>
