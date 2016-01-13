@@ -131,6 +131,15 @@
 			<Label lang="en">Single Wall Outlet</Label>
 			<ConfigFile>linear/wo15z-1.xml</ConfigFile>
 		</Product>
+		<Product>
+			<Reference>
+				<Type>5457</Type>
+				<Id>3033</Id>
+			</Reference>
+			<Model>WT00Z-1</Model>
+			<Label lang="en">3-Way Wall Accessory Switch</Label>
+			<ConfigFile>linear/wt00z-1.xml</ConfigFile>
+		</Product>
 	</Manufacturer>
 	<Manufacturer>
 		<Id>0150</Id>
@@ -717,7 +726,8 @@
 				<Type>8001</Type>
 				<Id>0001</Id>
 			</Reference>
-			<Model>50x5xx</Model>
+			<Model>508519</Model>
+			<ConfigFile>merten/508519.xml</ConfigFile>
 			<Label lang="en">Switch Plug</Label>
 		</Product>
 		<Product>
@@ -728,6 +738,15 @@
 			<Model>5082xx</Model>
 			<Label lang="en">Battery Powered Wall Controller MOVE</Label>
 			<ConfigFile>merten/5082xx.xml</ConfigFile>
+		</Product>
+		<Product>
+			<Reference>
+				<Type>0001</Type>
+				<Id>0002</Id>
+			</Reference>
+			<Model>506119</Model>
+			<Label lang="en">Battery Powered Wall Controller</Label>
+			<ConfigFile>merten/506119.xml</ConfigFile>
 		</Product>
 	</Manufacturer>
 	<Manufacturer>
@@ -2178,6 +2197,15 @@
 			<Label lang="en">Smart Energy Plug In Switch</Label>
 			<ConfigFile>philio/pan11_1b.xml</ConfigFile>
 		</Product>
+		<Product>
+			<Reference>
+				<Type>0002</Type>
+				<Id>0021</Id>
+			</Reference>
+			<Model>PAT02-C</Model>
+			<Label lang="en">Flood Sensor</Label>
+			<ConfigFile>philio/pat02c.xml</ConfigFile>
+		</Product>
 	</Manufacturer>
 	<Manufacturer>
 		<Id>0096</Id>
@@ -2761,6 +2789,16 @@
 			<Model>123665</Model>
 			<Label lang="en">Wall Plug Meter Switch</Label>
 			<ConfigFile>popp/123665.xml</ConfigFile>
+		</Product>
+		<Product>
+			<Reference>
+				<Type>201</Type>
+				<Id>100</Id>
+			</Reference>
+			<Model>004001</Model>
+			<Label lang="en">Smoke Detector and Siren</Label>
+			<Label lang="de">Rauchwarnmelder mit integrierter Innensirene</Label>
+			<ConfigFile>popp/004001.xml</ConfigFile>
 		</Product>
 		<Product>
 			<Reference>

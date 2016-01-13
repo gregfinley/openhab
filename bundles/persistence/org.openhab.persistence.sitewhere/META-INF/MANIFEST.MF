@@ -2,13 +2,12 @@ Manifest-Version: 1.0
 Service-Component: OSGI-INF/persistence.xml
 Bundle-Name: openHAB SiteWhere Persistence
 Bundle-Vendor: openHAB.org
-Bundle-Version: 1.8.0.qualifier
+Bundle-Version: 1.9.0.qualifier
 Bundle-Activator: org.openhab.persistence.sitewhere.internal.SiteWhereActivator
 Bundle-ManifestVersion: 2
 Bundle-License: http://www.eclipse.org/legal/epl-v10.html
 Import-Package: com.google.common.annotations,
  org.apache.commons.lang,
- org.openhab.config.core,
  org.openhab.core.events,
  org.openhab.core.items,
  org.openhab.core.library.items,
