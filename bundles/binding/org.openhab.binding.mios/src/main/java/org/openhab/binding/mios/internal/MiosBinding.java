@@ -98,7 +98,7 @@ public class MiosBinding extends AbstractBinding<MiosBindingProvider>implements 
 
     /**
      * Invoked by OSGi Framework, once per instance, during the Binding activation process.
-     * 
+     *
      * OSGi is configured to do this in OSGI-INF/activebinding.xml
      */
     @Override
@@ -109,9 +109,9 @@ public class MiosBinding extends AbstractBinding<MiosBindingProvider>implements 
 
     /**
      * Invoked by the OSGi Framework, once per instance, during the Binding deactivation process.
-     * 
+     *
      * Internally this is used to close out any resources used by the MiOS Binding.
-     * 
+     *
      * OSGi is configured to do this in OSGI-INF/activebinding.xml
      */
     @Override
@@ -316,6 +316,14 @@ public class MiosBinding extends AbstractBinding<MiosBindingProvider>implements 
         // information out of the above logger call than we get from openHAB.
     }
 
+    protected void addBindingProvider(MiosBindingProvider bindingProvider) {
+        super.addBindingProvider(bindingProvider);
+    }
+
+    protected void removeBindingProvider(MiosBindingProvider bindingProvider) {
+        super.removeBindingProvider(bindingProvider);
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -325,8 +333,14 @@ public class MiosBinding extends AbstractBinding<MiosBindingProvider>implements 
 
         Map<String, MiosUnit> units = new HashMap<String, MiosUnit>();
 
-        Enumeration<String> keys = properties.keys();
+        // Under openHAB 2.0, we get called shortly after activate(), but mios.cfg
+        // hasn't yet been loaded, so we're passed a null properties object.
+        // We're called again later, so it'll get established correctly at that point.
+        if (properties == null) {
+            return;
+        }
 
+        Enumeration<String> keys = properties.keys();
         while (keys.hasMoreElements()) {
             String key = keys.nextElement();
 
@@ -403,7 +417,7 @@ public class MiosBinding extends AbstractBinding<MiosBindingProvider>implements 
      * <li>{@code Boolean} -> {@code StringType} (true == ON, false == OFF)
      * <li>{@code Calendar} -> {@code DateTimeType}
      * </ul>
-     * 
+     *
      * @param property
      *            the MiOS Property name
      * @param value
