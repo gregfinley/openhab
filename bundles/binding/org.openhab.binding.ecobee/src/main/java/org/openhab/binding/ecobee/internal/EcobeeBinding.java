@@ -611,35 +611,27 @@ public class EcobeeBinding extends AbstractActiveBinding<EcobeeBindingProvider>
      * {@inheritDoc}
      */
     @Override
-    public boolean callEcobee(final String itemName, final AbstractFunction function) {
-        // Find the first binding provider for this itemName.
-        EcobeeBindingProvider provider = null;
-        String selectionMatch = null;
-        for (EcobeeBindingProvider p : this.providers) {
-            selectionMatch = p.getThermostatIdentifier(itemName);
-            if (selectionMatch != null) {
-                provider = p;
-                break;
-            }
-        }
-
-        if (provider == null) {
-            logger.warn("no matching binding provider found [itemName={}, function={}]", itemName, function);
-            return false;
-        }
-
-        final Selection selection = new Selection(selectionMatch);
-        logger.trace("Selection for function: {}", selection);
+    public boolean callEcobee(final String selection, final AbstractFunction func) {
 
         try {
-            logger.trace("Function to call: {}", function);
+            logger.trace("Function to call: {}", func);
 
-            OAuthCredentials oauthCredentials = getOAuthCredentials(provider.getUserid(itemName));
+            String userid = null;
+            String selectionMatch = selection;
+            if (selectionMatch.contains(".")) {
+                String[] parts = selectionMatch.split("\\.");
+                userid = parts[0];
+                selectionMatch = parts[1];
+            }
 
+            OAuthCredentials oauthCredentials = getOAuthCredentials(userid);
             if (oauthCredentials == null) {
-                logger.warn("Unable to locate credentials for item {}; aborting function call.", itemName);
+                logger.warn("Unable to locate credentials for selection {}; aborting function call.", selection);
                 return false;
             }
+
+            final Selection sel = new Selection(selectionMatch);
+            logger.trace("Selection for function: {}", sel);
 
             if (oauthCredentials.noAccessToken()) {
                 if (!oauthCredentials.refreshTokens()) {
@@ -649,17 +641,17 @@ public class EcobeeBinding extends AbstractActiveBinding<EcobeeBindingProvider>
             }
 
             List<AbstractFunction> functions = new ArrayList<AbstractFunction>(1);
-            functions.add(function);
+            functions.add(func);
 
-            UpdateThermostatRequest request = new UpdateThermostatRequest(oauthCredentials.accessToken, selection,
-                    functions, null);
+            UpdateThermostatRequest request = new UpdateThermostatRequest(oauthCredentials.accessToken, sel, functions,
+                    null);
 
             ApiResponse response = request.execute();
             if (response.isError()) {
                 final Status status = response.getStatus();
                 if (status.isAccessTokenExpired()) {
                     if (oauthCredentials.refreshTokens()) {
-                        return callEcobee(itemName, function);
+                        return callEcobee(selection, func);
                     }
                 } else {
                     logger.error("Error calling function: {}", response);
@@ -899,6 +891,8 @@ public class EcobeeBinding extends AbstractActiveBinding<EcobeeBindingProvider>
                     selection.setIncludeSettings(true);
                 } else if (property.startsWith("runtime")) {
                     selection.setIncludeRuntime(true);
+                } else if (property.startsWith("alerts")) {
+                    selection.setIncludeAlerts(true);
                 } else if (property.startsWith("extendedRuntime")) {
                     selection.setIncludeExtendedRuntime(true);
                 } else if (property.startsWith("electricity")) {
@@ -1129,7 +1123,7 @@ public class EcobeeBinding extends AbstractActiveBinding<EcobeeBindingProvider>
             logger.info("#########################################################################################");
             logger.info("# Ecobee-Integration: U S E R   I N T E R A C T I O N   R E Q U I R E D !!");
             logger.info("# 1. Login to www.ecobee.com using your '{}' account", this.userid);
-            logger.info("# 2. Enter the PIN '{}' in My Apps within the next {} seconds.", response.getEcobeePin(),
+            logger.info("# 2. Enter the PIN '{}' in My Apps within the next {} minutes.", response.getEcobeePin(),
                     response.getExpiresIn());
             logger.info("# NOTE: Any API attempts will fail in the meantime.");
             logger.info("#########################################################################################");
