@@ -122,6 +122,16 @@
         </Parameter>
 
         <Parameter>
+            <Index>8</Index>
+            <Label lang="en">Timeout after wake up</Label>
+            <Type>short</Type>
+            <Default>30</Default>
+            <Minimum>8</Minimum>
+            <Maximum>255</Maximum>
+            <Size>1</Size>
+        </Parameter>
+
+        <Parameter>
             <Index>9</Index>
             <Label lang="en">Report the current power mode</Label>
             <Type>short</Type>
@@ -167,7 +177,7 @@
             <Default>20</Default>
             <Minimum>0</Minimum>
             <Maximum>100</Maximum>
-            <Size>2</Size>
+            <Size>3</Size>
         </Parameter>
 
         <Parameter>
@@ -237,6 +247,36 @@
             <Maximum>1</Maximum>
             <WriteOnly>true</WriteOnly>
             <Size>1</Size>
+        </Parameter>
+
+        <Parameter>
+            <Index>101</Index>
+            <Label lang="en">Group 1 Periodic Reports</Label>
+            <Type>short</Type>
+            <Default>241</Default>
+            <Minimum>0</Minimum>
+            <Maximum>65535</Maximum>
+            <Size>4</Size>
+        </Parameter>
+
+        <Parameter>
+            <Index>102</Index>
+            <Label lang="en">Group 2 Periodic Reports           </Label>
+            <Type>short</Type>
+            <Default>0</Default>
+            <Minimum>0</Minimum>
+            <Maximum>65535</Maximum>
+            <Size>4</Size>
+        </Parameter>
+
+        <Parameter>
+            <Index>103</Index>
+            <Label lang="en">Group 3 Periodic Reports           </Label>
+            <Type>short</Type>
+            <Default>0</Default>
+            <Minimum>0</Minimum>
+            <Maximum>65535</Maximum>
+            <Size>4</Size>
         </Parameter>
 
         <Parameter>
