@@ -59,6 +59,15 @@
         <Name>Linear</Name>
         <Product>
             <Reference>
+                <Type>2005</Type>
+                <Id>0503</Id>
+            </Reference>
+            <Model>WA105DBZ</Model>
+            <Label lang="en">Siren</Label>
+            <ConfigFile>linear/wa105dbz.xml</ConfigFile>
+        </Product>
+        <Product>
+            <Reference>
                 <Type>5257</Type>
                 <Id>3533</Id>
             </Reference>
@@ -1248,6 +1257,15 @@
             <Model>ZW099</Model>
             <Label lang="en">Smart Dimmer 6</Label>
             <ConfigFile>aeon/zw099.xml</ConfigFile>
+        </Product>
+        <Product>
+            <Reference>
+                <Type>0002</Type>
+                <Id>0070</Id>
+            </Reference>
+            <Model>ZW112</Model>
+            <Label lang="en">Door/Window Sensor 6</Label>
+            <ConfigFile>aeon/zw112.xml</ConfigFile>
         </Product>
     </Manufacturer>
     <Manufacturer>
@@ -2986,6 +3004,15 @@
             <Model>doorSensor</Model>
             <Label lang="en">BeNext Door Sensor</Label>
             <ConfigFile>benext/doorsensor.xml</ConfigFile>
+        </Product>
+        <Product>
+            <Reference>
+                <Type>0003</Type>
+                <Id>0101</Id>
+            </Reference>
+            <Model>Molite</Model>
+            <Label lang="en">Movement sensor with temperature and light sensor</Label>
+            <ConfigFile>benext/molite.xml</ConfigFile>
         </Product>
         <Product>
             <Reference>
