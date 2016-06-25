@@ -38,6 +38,14 @@
     <configfile finalname="${openhab.conf}/services/mios.cfg" override="false">mvn:${project.groupId}/openhab-addons-external/${project.version}/cfg/mios</configfile>
   </feature>
 
+  <feature name="openhab-action-mqtt" description="MQTT Action" version="${project.version}">
+    <feature>openhab-runtime-base</feature>
+    <feature>openhab-runtime-compat1x</feature>
+    <bundle start-level="80">mvn:org.openhab.io/org.openhab.io.transport.mqtt/${project.version}</bundle>
+    <bundle start-level="80">mvn:org.openhab.action/org.openhab.action.mqtt/${project.version}</bundle>
+    <configfile finalname="${openhab.conf}/services/mqtt.cfg" override="false">mvn:${project.groupId}/openhab-addons-external/${project.version}/cfg/mqtt</configfile>
+  </feature>
+
   <feature name="openhab-action-pebble" description="Pebble Action" version="${project.version}">
     <feature>openhab-runtime-base</feature>
     <feature>openhab-runtime-compat1x</feature>
@@ -287,6 +295,13 @@
     <feature>openhab-runtime-compat1x</feature>
     <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.lgtv/${project.version}</bundle>
     <configfile finalname="${openhab.conf}/services/lgtv.cfg" override="false">mvn:${project.groupId}/openhab-addons-external/${project.version}/cfg/lgtv</configfile>
+  </feature>
+
+  <feature name="openhab-binding-mochadx10" description="MochadX10 Binding" version="${project.version}">
+    <feature>openhab-runtime-base</feature>
+    <feature>openhab-runtime-compat1x</feature>
+    <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.mochadx10/${project.version}</bundle>
+    <configfile finalname="${openhab.conf}/services/mochadx10.cfg" override="false">mvn:${project.groupId}/openhab-addons-external/${project.version}/cfg/mochadx10</configfile>
   </feature>
 
   <feature name="openhab-binding-milight" description="Milight Binding" version="${project.version}">
